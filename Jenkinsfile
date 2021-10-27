@@ -6,7 +6,7 @@ pipeline {
      EMAIL_TO = "sh(GIT_BRANCH %GIT_BRANCH%)"
      BRANCH = "${env.BRANCH_NAME}"
      COMMIT = "${env.GIT_COMMIT}"
-     AUTHOR = "${env.GIT_AUTHOR_NAME}"
+     
      
    }
     agent any
