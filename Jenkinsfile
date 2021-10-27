@@ -25,7 +25,7 @@ pipeline {
         stage("Env Variables") {
             steps {
                 sh 'echo $BRANCH'
-                echo "The build number is ${env.GIT_BRANCH}"
+                echo "The build number is ${env.BUILD_NUMBER}"
                 echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
                 sh 'echo "I can access $BUILD_NUMBER in shell command as well."'
             }
@@ -39,7 +39,7 @@ pipeline {
             
         }
         success {
-            mail bcc: '', body: "<b>Build Failed</b> <br>BUILD_TRIGGER_BY: ${BUILD_TRIGGER_BY}<br><br>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}<br> URL link: ${env.BUILD_URL}/console", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "nagapatukuru@gmail.com";
+            mail bcc: '', body: "<b>Build Failed</b><br>\n<br>Project: ${env.JOB_NAME} <br>Branch: ${BRANCH}<br><br>Build Number: ${env.BUILD_NUMBER}<br> URL link: ${env.BUILD_URL}/console", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "nagapatukuru@gmail.com";
         }
         failure {
             
