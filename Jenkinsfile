@@ -6,7 +6,7 @@ pipeline {
      EMAIL_TO = "sh(GIT_BRANCH %GIT_BRANCH%)"
      BRANCH = "${env.BRANCH_NAME}"
      COMMIT = "${env.GIT_COMMIT}"
-     AUTHOR = "${env.GIT_COMMITTER_NAME}"
+     AUTHOR = "${env.GIT_AUTHOR_NAME}"
      
    }
     agent any
@@ -28,6 +28,7 @@ pipeline {
             steps {
                 sh 'echo $BRANCH'
                 sh 'echo $COMMIT'
+                sh 'echo $AUTHOR
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
                 sh 'echo "I can access $BUILD_NUMBER in shell command as well."'
