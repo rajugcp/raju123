@@ -5,6 +5,7 @@ pipeline {
      BUILD_BRANCH_BY = "${currentBuild.getBuildCauses()[0].shortDescription} / ${currentBuild.getBuildCauses()[0].gitBrnach}"
      EMAIL_TO = "sh(GIT_BRANCH %GIT_BRANCH%)"
      BRANCH = "${env.BRANCH_NAME}"
+     COMMIT = "${env.GIT_COMMIT}"
      
    }
     agent any
@@ -25,6 +26,7 @@ pipeline {
         stage("Env Variables") {
             steps {
                 sh 'echo $BRANCH'
+                sh 'echo $COMMIT'
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
                 sh 'echo "I can access $BUILD_NUMBER in shell command as well."'
