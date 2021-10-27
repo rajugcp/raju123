@@ -43,7 +43,7 @@ pipeline {
             
         }
         success {
-            mail bcc: '', body: "<b>Build Success</b><br>\n<br>Project: ${env.JOB_NAME} <br>Branch: ${BRANCH}<br><br>CommitID: ${COMMIT}<br><br>Author: ${AUTHOR}<br><br>Build Number: ${env.BUILD_NUMBER}<br> URL link: ${env.BUILD_URL}/console", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "sreelathanerusu@gmail.com";
+            mail bcc: '', body: "<b>Build Success</b><br>\n<br>Project: ${env.JOB_NAME} <br>Branch: ${BRANCH}<br><br>CommitID: ${COMMIT}<br><br>Build Number: ${env.BUILD_NUMBER}<br> URL link: ${env.BUILD_URL}/console", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "JOB SUCCESS: Project name -> ${env.JOB_NAME}", to: "sreelathanerusu@gmail.com";
         }
         failure {
             
